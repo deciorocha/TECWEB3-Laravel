@@ -3,8 +3,13 @@
 @section('titulo', 'Página Produtos - Listagens')
 
 @section('conteudo')
-
-    <h2>Página Produtos - Listagens</h2>
+<div class="card bg-light mb-3">
+    <div class="card-body">
+      <h5 class="card-title fs-2">Produtos - Listagens</h5>
+      <a href="create" class="btn btn-success">Cadastrar</a>
+    </div>
+  </div>
+    <h2></h2>
     <table class="table table-striped">
         <tr>
             <th>ID</th>

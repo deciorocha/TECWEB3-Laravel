@@ -11,7 +11,8 @@ class ProdutosController extends Controller
     {
         //$produtos = Produto::all();
         $produtos = Produto::paginate();
-
+        //$count = Produto::all()->count();
+        //return view('produtos.index', ["produtos" => $produtos, "count" => $count]);
         return view('produtos.index', ["produtos" => $produtos]);
         
         //return $produtos;
