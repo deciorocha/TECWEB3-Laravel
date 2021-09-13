@@ -29,10 +29,23 @@
                 <td>{{ $produto->valor }}</td>
                 <td><input type="checkbox" name="status" value="1"></td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-sm">
-                        <i class="far fa-eye"></i>
-                    </button>
+                    <a href="{{route('produtos.ver', $produto->id)}}">
+                        <button type="button" class="btn btn-primary btn-sm">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </a>
+                    <a href="{{route('produtos.ver', $produto->id)}}">
+                        <button type="button" class="btn btn-warning btn-sm">
+                            <i class="far fa-edit"></i>
+                        </button>
+                    </a>
+                    <a href="{{route('produtos.ver', $produto->id)}}">
+                        <button type="button" class="btn btn-danger btn-sm">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </a>
                 </td>
+
             </tr>
         @endforeach
     </table>

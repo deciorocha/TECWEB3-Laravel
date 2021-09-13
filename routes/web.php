@@ -45,9 +45,10 @@ Route::get('/home', HomeController::class);
 Route::get('/home-principal', [HomeController::class, 'principal']);
 //
 // Produtos
-Route::get('/produtos', [ProdutosController::class, 'index']);
+Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.inserir');
-Route::get('/produtos/show', [ProdutosController::class, 'show'])->name('produtos.ver');
+Route::post('/produtos/create', [ProdutosController::class, 'insert'])->name('produtos.inserir');
+Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.ver');
 
 // http://localhost:8000/produtos/cal%C3%A7a/5/50
 
