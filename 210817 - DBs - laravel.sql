@@ -24,19 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categoria`
+-- Estrutura da tabela `categorias`
 --
 
-CREATE TABLE `categoria` (
+CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `categoria`
+-- Extraindo dados da tabela `categorias`
 --
 
-INSERT INTO `categoria` (`id`, `nome`) VALUES
+INSERT INTO `categorias` (`id`, `nome`) VALUES
 (1, 'Escritório'),
 (2, 'Informática'),
 (3, 'Artesanatos'),
@@ -102,9 +102,9 @@ INSERT INTO `produtos` (`id`, `nome`, `descricao`, `valor`) VALUES
 --
 
 --
--- Índices para tabela `categoria`
+-- Índices para tabela `categorias`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -120,7 +120,7 @@ ALTER TABLE `produtos`
 --
 -- AUTO_INCREMENT de tabela `categoria`
 --
-ALTER TABLE `categoria`
+ALTER TABLE `categorias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --

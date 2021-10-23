@@ -3,6 +3,7 @@
 @section('titulo', 'Página Produtos - Listagens')
 
 @section('conteudo')
+
 <div class="card bg-light mb-3">
     <div class="card-body">
       <h5 class="card-title fs-2">Produtos - Listagens</h5>
@@ -13,7 +14,7 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>ID</th>
+                <th><button>ID</button></th>
                 <th>NOME</th>
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
@@ -34,12 +35,12 @@
                             <i class="far fa-eye"></i>
                         </button>
                     </a>
-                    <a href="{{route('produtos.ver', $produto->id)}}">
+                    <a href="{{route('produtos.edit', $produto)}}">
                         <button type="button" class="btn btn-warning btn-sm">
                             <i class="far fa-edit"></i>
                         </button>
                     </a>
-                    <a href="{{route('produtos.ver', $produto->id)}}">
+                    <a href="{{route('produtos.delete', $produto->id)}}">
                         <button type="button" class="btn btn-danger btn-sm">
                             <i class="far fa-trash-alt"></i>
                         </button>
@@ -52,6 +53,5 @@
     <div>
         {{ $produtos->links()}}
     </div> 
-    
 
 @endsection

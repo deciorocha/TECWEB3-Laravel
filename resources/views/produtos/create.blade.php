@@ -5,8 +5,8 @@
 @section('conteudo')
 <div class="card bg-light mb-3">
     <div class="card-body">
-      <h5 class="card-title fs-2">Produtos - Listagens</h5>
-      <a href="{{ route('produtos.inserir') }}" class="btn btn-success">Cadastrar</a>
+      <h5 class="card-title fs-2">Produtos - Cadastrar</h5>
+
     </div>
   </div>
     <h2></h2>
@@ -25,6 +25,7 @@
                 <label for="descricao" class="form-label">Descrição:</label>
                 <textarea class="form-control" name="descricao" id="descricao" rows="3"></textarea>
               </div>
+            <a href="{{ route('produtos') }}" class="btn btn-success">Voltar</a>
             <button type="submit" name="salvar" class="btn btn-primary">Salvar</button>
           </form>
     </div>

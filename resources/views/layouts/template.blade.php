@@ -48,13 +48,13 @@
       </nav>
 
       <div class="container">
-
-        @yield('conteudo') 
+        @include('mensagem') {{-- mensagem.blade.php no views --}}
+        @yield('conteudo')
 
       </div>
       <div class="footer">
 
-        @yield('rodape')
+        @yield('rodape') {{-- rodape.blade.php no views --}}
 
       </div>
 

@@ -49,6 +49,41 @@ class ProdutosController extends Controller
         $produto->valor = $request->valor;
         $produto->descricao = $request->descricao;
         $produto->save();
-        return redirect()->route('produtos');
+
+        $mensagem = "Registro ({$produto->nome}) Cadastrado com Sucesso!";
+
+        return redirect()->route('produtos')->with('success', $mensagem);
     }
+
+    public function edit(Produto $produto) {
+        return view('produtos.edit', ['produto' => $produto]);
+    }
+
+    public function editar(Request $request, Produto $produto) {
+        $produto->nome = $request->nome;
+        $produto->valor = $request->valor;
+        $produto->descricao = $request->descricao;
+        $produto->save();
+
+        $mensagem = "O Registro ({$produto->id} - {$produto->nome}) foi Alterado com sucesso!!!";
+
+        return redirect()->route('produtos')->with('info', $mensagem);
+
+        // Outra forma de usar flash message
+        // $request->session()->flash('success', $mensagem);
+        // return redirect()->route('produtos');
+    }
+
+    public function delete(Produto $produto) {
+        return view('produtos.delete', ['produto' => $produto]);
+    }
+
+    public function deletar(Produto $produto) {
+        $mensagem = "O Registro ({$produto->id} - {$produto->nome}) foi Excluído com sucesso!!!";
+        $produto->delete();
+        return redirect()->route('produtos')->with('success', $mensagem);
+
+    }
+
+
 }

@@ -41,14 +41,28 @@ Route::get('soma/{numeroA}/{numeroB}', function ($a, $b) {
     return $soma;
 });
 
-Route::get('/home', HomeController::class);
-Route::get('/home-principal', [HomeController::class, 'principal']);
+// Route::get('/home', HomeController::class);
+// Route::get('/home-principal', [HomeController::class, 'principal']);
+//
+// LOGIN
+//Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', function () {
+    return view('login');
+});
+
 //
 // Produtos
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 Route::get('/produtos/create', [ProdutosController::class, 'create'])->name('produtos.inserir');
 Route::post('/produtos/create', [ProdutosController::class, 'insert'])->name('produtos.inserir');
 Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.ver');
+// Editar
+Route::get('/produtos/{produto}/edit', [ProdutosController::class, 'edit'])->name('produtos.edit');
+Route::put('/produtos/{produto}', [ProdutosController::class, 'editar'])->name('produtos.editar');
+// Excluir
+Route::get('/produtos/{produto}/delete', [ProdutosController::class, 'delete'])->name('produtos.delete');
+Route::delete('/produtos/{produto}', [ProdutosController::class, 'deletar'])->name('produtos.deletar');
+
 
 // http://localhost:8000/produtos/cal%C3%A7a/5/50
 
