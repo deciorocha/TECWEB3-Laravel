@@ -2,6 +2,7 @@
 @section('titulo', 'Produtos - Deletar')
 @section('conteudo')
 <div class="container">
+    
     <div class="card bg-light mb-3">
         <div class="card-body">
             <h5 class="card-title fs-2">Produtos - Editar</h5>
