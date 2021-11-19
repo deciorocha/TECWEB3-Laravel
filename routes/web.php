@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,28 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/olaMundo', function () {
-    return "Olá Mundo!!";
-});
-
-Route::get('/soma', function () {
-    $x = 10;
-    $y = 20;
-    $total = $y+$x;
-    return $total;
-});
-
-Route::get('/adicionarProduto/{id}', function ($id) {
-    $texto = "o parâmetro Recebido é o ID = ".$id;
-    return $texto;
-});
-
-Route::get('soma/{numeroA}/{numeroB}', function ($a, $b) {
-    $soma = $a + $b;
-    return $soma;
-});
-
-// Route::get('/home', HomeController::class);
+Route::get('/home', HomeController::class);
 // Route::get('/home-principal', [HomeController::class, 'principal']);
 //
 // LOGIN
@@ -49,6 +29,7 @@ Route::get('soma/{numeroA}/{numeroB}', function ($a, $b) {
 Route::get('/login', function () {
     return view('login');
 });
+Route::post('/', [UsuariosController::class, 'login'])->name('usuarios.login');
 
 //
 // Produtos
@@ -77,6 +58,13 @@ Route::get('/teste-blade', function () {
 
 //
 // Categorias
-Route::get('/categorias', [CategoriasController::class, 'index']);
-Route::get('/categorias/create', [CategoriasController::class, 'create']);
-Route::get('/categorias/show', [CategoriasController::class, 'show']);
+Route::get('/categorias', [CategoriasController::class, 'index'])->name('categorias');
+Route::get('/categorias/create', [CategoriasController::class, 'create'])->name('categorias.inserir');
+Route::post('/categorias/create', [CategoriasController::class, 'insert'])->name('categorias.inserir');
+Route::get('/categorias/{id}', [CategoriasController::class, 'show'])->name('categorias.ver');
+// Editar
+Route::get('/categorias/{categoria}/edit', [CategoriasController::class, 'edit'])->name('categorias.edit');
+Route::put('/categorias/{categoria}', [CategoriasController::class, 'editar'])->name('categorias.editar');
+// Excluir
+Route::get('/categorias/{categoria}/delete', [CategoriasController::class, 'delete'])->name('categorias.delete');
+Route::delete('/categorias/{categoria}', [CategoriasController::class, 'deletar'])->name('categorias.deletar');

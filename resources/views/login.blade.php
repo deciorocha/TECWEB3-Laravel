@@ -31,7 +31,8 @@
 
             </div>
         </div>
-        <form>
+        <form method="POST" action="{{ route('usuarios.login') }}">
+            @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email" aria-describedby="email">
